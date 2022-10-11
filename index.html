@@ -1,90 +1,127 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="ja">
 
-class ContactForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isSubmitted: false,
-            email: "sample@gmail.com",
-            hasEmailError: false,
-            content: "お問い合わせ内容",
-            hasContactError: false,
-        };
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-    handleSubmit() {
-        this.setState({ isSubmitted: true });
-    }
-
-    handleEmailChange(event) {
-        const inputValue = event.target.value;
-        const isEmpty = inputValue === "";
-        this.state = {
-            emial: inputValue,
-            hasEmailError: isEmpty,
-        }
-    }
-
-    handleContentChange(event) {
-        const inputValue = event.target.value;
-        const isEmpty = inputValue === "";
-        this.state = {
-            content: inputValue,
-            hasContentError: isEmpty,
-        }
-    }
-
-    render() {
-        let emailErrorText;
-        if (this.state.hasEmailError) {
-            emailErrorText = (
-                <span>
-                    emailを入力してください
-                </span>
-            );
-        }
-
-        let contentErrorText;
-        if (this.state.hasContactError) {
-            contentErrorText = (
-                <span>
-                    お問い合わせ内容を入力してください
-                </span>
-            );
-        }
-
-        let contactForm;
-        if (this.state.isSubmitted) {
-            contactForm = (
-                <span className="message">送信完了しました</span>
-            );
-        } else {
-            contactForm = (
-                <form onSubmit={() => { handleSubmit() }}>
-                    <p>メールアドレス（必須）</p>
-                    <input
-                        value={this.state.email}
-                        onChange={(event) => { handleEmailChange(event) }}
-                    />
-                    {emailErrorText}
-                    <p>お問い合わせ（必須）</p>
-                    <textarea
-                        value={this.state.content}
-                        onChange={(event) => handleContenttChange(event)}
-                    />
-                    {contentErrortext}
-                    <input type="submit" value="送信" />
-                </form>
-            );
-        }
-
-        return (
-            <div className="container">
-                {contactForm}
+<body>
+    <script src="ContactForm.js"></script>
+    <!--Hero section-->
+    <div class="hero">
+        <nav>
+            <h2 class="logo">Aki<span>Enginner</span></h2>
+            <!-- <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">ブログ</a></li>
+                <li><a href="#">ポートフォリオ</a></li>
+            </ul> -->
+            
+            <a href="#" class="btn">お問い合わせ</a>
+        </nav>
+        <div class="content">
+            <div class="body">
+                <div class="portfolioInfo">
+                    <h4>駆け出しエンジニア</h4>
+                    <h1>Aki<span>Enginner</span></h1>
+                    <h3>HTML/CSS/JapaScript/C#</h3>
+                    <div class="newslatter">
+                        <form>
+                            <input type="email" placeholder="メールアドレスを入力" />
+                            
+                            <input type="submit" value="お問い合わせ" />
+                        </form>
+                    </div>
+                </div>
+                <img src="./img/NodeJs_Logo.jpg" alt="" />
             </div>
-        );
-    }
+        </div>
+    </div>
 
-}
+    <!--about me section-->
+    <section class="about">
+        <div class="main">
+            <img src="./img/React_Logo.png" alt="" />
+            <div class="about-text">
+                <h2>私について</h2>
+                <h5>幅広い分野で活躍できるエンジニアを目指して！</h5>
+                <p>学生時代はゲームプログラミングの勉強を専門学校で学び、その後マーケティング関連の仕事を勤めました。現在はJavaScriptの勉強に励んでおり勉強の一環でHTML＆CSSを使ったポートフォリオを自作してみました。現在勉強しているのはJavaScriptのReact、まだまだ駆け出しですがよろしくお願いします。</p>
+                <button class="button">お問い合わせ</button>
+            </div>
+        </div>
+    </section>
 
-export default ContactForm;
+    <!--portfolio section-->
+    <div class="portfolio">
+        <div class="title">
+            <h2><span>A</span>pplic<span>a</span>tion</h2>
+        </div>
+        <div class="box">
+            <div class="card">
+                <i class="fa-solid fa-bars"></i>
+                <h5>Web Application</h5>
+                <div class="pragraph">
+                    <p>
+                        Node.jsとFirebaseを使用したアプリケーション。開発日数は約20日です。
+                    </p>
+                    <p style="text-align: center">
+                        <a href="#" class="button">もっと読む</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bell"></i>
+                <h5>Fullstack Application</h5>
+                <div class="pragraph">
+                    <p>現在開発中のプロジェクトです。
+                        完成次第こちらに挙げる予定です。
+                    </p>
+                    <p style="text-align: center">
+                        <a href="#" class="button">もっと読む</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-code"></i>
+                <h5>Game Application</h5>
+                <div class="pragraph">
+                    <p>
+                        学生時にゲームクリエイターとして開発していた作品達です。
+                    </p>
+
+                    <p style="text-align: center">
+                        <a href="#" class="button">もっと読む</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--contact section-->
+    <div class="contact">
+        <p>気になる方は私にお問い合わせください</p>
+        <a href="#" class="contact-button">お問い合わせ</a>
+    </div>
+
+    <!--footer section-->
+    <footer>
+        <p>Aki<span>Enginner</span></p>
+        <!-- <p>Please subscribe my Channel </p>
+        <div class="social">
+            <a href="https://ja-jp.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/?hl=ja"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        </div> -->
+        <p class="end">ご覧いただきありがとうございます。</p>
+    </footer>
+
+</body>
+
+</html>
